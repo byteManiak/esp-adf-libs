@@ -268,10 +268,11 @@ static int downmix_process(audio_element_handle_t self, char *in_buffer, int in_
         ESP_LOGD(TAG, "bytes[ %d ] = %d", index, bytes[index]);
     }
 #endif
+	//TODO: add member to downmix cfg structure to allow this to happen
     //down-mixer finished
-    if (status_end == downmix->downmix_info.source_num || (status_end == 1 && downmix->downmix_info.mode == ESP_DOWNMIX_WORK_MODE_BYPASS)) {
-        return ESP_OK;
-    }
+    //if (status_end == downmix->downmix_info.source_num || (status_end == 1 && downmix->downmix_info.mode == ESP_DOWNMIX_WORK_MODE_BYPASS)) {
+    //    return ESP_OK;
+    //}
     ret = esp_downmix_process(downmix->downmix_handle, downmix->inbuf, downmix->outbuf, downmix->max_sample, downmix->downmix_info.mode);
 
 #ifdef DEBUG_DOWNMIX_ISSUE
